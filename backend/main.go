@@ -365,11 +365,18 @@ func handleWebSocket(w http.ResponseWriter, r *http.Request) {
 func main() {
 	initDB()
 	defer db.Close()
-    
+
+	// Root health check endpoint
 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
-    w.Header().Set("Content-Type", "application/json")
-    w.Write([]byte(`{"status":"online","service":"Multi-Window Media Sequencer Backend"}`))
-})
+		enableCORS(w)
+		if r.URL.Path != "/" {
+			http.NotFound(w, r)
+			return
+		}
+		w.Header().Set("Content-Type", "application/json")
+		w.Write([]byte(`{"status":"online","service":"Multi-Window Media Sequencer API"}`))
+	})
+
 	http.HandleFunc("/api/windows", handleGetWindows)
 	http.HandleFunc("/api/windows/", handleAddMedia)
 	http.HandleFunc("/api/sync", handleSync)

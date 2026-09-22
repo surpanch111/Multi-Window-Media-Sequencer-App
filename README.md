@@ -88,7 +88,7 @@ Default seed data includes 3 pre-configured display windows containing a realist
   "status": "online",
   "service": "Multi-Window Media Sequencer API"
 }
-
+```
 ---
 
 ## Architecture

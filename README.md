@@ -9,6 +9,26 @@ A full-stack distributed display application where multiple browser windows cont
 
 ---
 
+## Overview
+
+This project allows users to organize media clips, sequence them in custom windows, and control playback or editing workflows from a rich user interface powered by JavaScript on the frontend and Go on the backend.
+
+## Why this project exists
+
+Media editing and sequencing often involve multiple views and workflows running side by side. This app aims to provide a flexible multi-window environment for organizing, previewing, and sequencing media with improved productivity and workflow clarity.
+
+## Features
+
+- Multi-window layout for media workflows
+- Timeline-based media sequencing
+- Media asset organization and management
+- Fast backend APIs for retrieving and processing media data
+- Web-based UI for interaction and control
+- Extensible architecture for future plugin or automation features
+- Cross-platform friendly design
+
+ ---
+  
 ## Non-Technical System Explanation
 Imagine a retail store or airport terminal with several digital billboard screens:
 - **Window 1 (Main Hall)** showcases promotional photos and scenic nature videos.
@@ -68,3 +88,18 @@ Default seed data includes 3 pre-configured display windows containing a realist
   "status": "online",
   "service": "Multi-Window Media Sequencer API"
 }
+
+---
+
+## Architecture
+
+```text
+Frontend (JavaScript)
+    |
+    | REST API / WebSocket communication
+    v
+Backend (Go)
+    |
+    | Media processing / sequencing logic
+    v
+Storage / File System / Media Assets
